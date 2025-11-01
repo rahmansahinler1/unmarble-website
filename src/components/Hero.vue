@@ -21,15 +21,15 @@
           </div>
           <h1 class="text-header">Try Clothes with AI</h1>
 
-          <p class="text-second mt-3 mb-0">See yourself in different outfits.</p>
+          <p class="text-second mt-3">See yourself in different outfits.</p>
 
-          <p class="text-third mt-2">
+          <p class="text-third">
             Upload your photos and clothes, create your gallery, and design new looks on yourself.
             No editing skills needed.
           </p>
 
           <!-- CTA -->
-          <div class="hero-cta-wrapper mt-4 d-flex align-items-end gap-4">
+          <div class="hero-cta-wrapper mt-5 d-flex align-items-center gap-4">
             <GoogleLogin :callback="handleGoogleLogin">
               <button class="btn btn-google btn-lg">
                 <svg
@@ -82,25 +82,28 @@
           <div class="mockup-grid">
             <!-- Large main image -->
             <div class="mockup-card mockup-large">
-              <div class="placeholder-content">
-                <p>Main Outfit Preview</p>
-                <span class="size-hint">800x1000px</span>
-              </div>
+              <img
+                src="/assets/generated-kadin.webp"
+                alt="AI Generated Outfit - Woman"
+                class="mockup-image"
+              />
             </div>
 
             <!-- Small images staggered -->
             <div class="mockup-small-group">
               <div class="mockup-card mockup-small">
-                <div class="placeholder-content">
-                  <p>Outfit Variation 1</p>
-                  <span class="size-hint">400x500px</span>
-                </div>
+                <img
+                  src="/assets/generated-hirka.webp"
+                  alt="AI Generated Outfit - Cardigan"
+                  class="mockup-image"
+                />
               </div>
               <div class="mockup-card mockup-small">
-                <div class="placeholder-content">
-                  <p>Outfit Variation 2</p>
-                  <span class="size-hint">400x500px</span>
-                </div>
+                <img
+                  src="/assets/generated-etek.webp"
+                  alt="AI Generated Outfit - Skirt"
+                  class="mockup-image"
+                />
               </div>
             </div>
           </div>
