@@ -1,26 +1,37 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-light">
     <div class="container">
-      <router-link to="/" class="navbar-brand logo-text">Unmarble</router-link>
+      <div class="navbar-content">
+        <router-link to="/" class="navbar-brand">
+          <img src="/assets/logo-small.svg" alt="Unmarble Logo" class="navbar-logo" />
+        </router-link>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          @click="toggleMenu"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon">☰</span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <button class="btn btn-primary" @click="handleTryForFree">Try For Free</button>
-          </li>
-        </ul>
+        <div class="navbar-menu" :class="{ active: isMenuOpen }">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#example" class="nav-link">Example</a>
+            </li>
+            <li class="nav-item">
+              <a href="#faq" class="nav-link">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="#pricing" class="nav-link">Pricing</a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn btn-primary navbar-cta" @click="handleTryForFree">
+          Try For Free
+        </button>
       </div>
     </div>
   </nav>
@@ -29,16 +40,24 @@
 <script>
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      isMenuOpen: false,
+    }
+  },
   methods: {
     handleTryForFree() {
-      // Scroll to hero section or trigger Google OAuth
-      const heroSection = document.querySelector('.hero-section')
-      if (heroSection) {
-        heroSection.scrollIntoView({ behavior: 'smooth' })
+      // Trigger Google OAuth by scrolling to CTA button
+      const ctaButton = document.querySelector('.hero-cta button')
+      if (ctaButton) {
+        ctaButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        // Optional: auto-click after scroll
+        setTimeout(() => ctaButton.focus(), 500)
       }
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
     },
   },
 }
 </script>
-
-<style scoped></style>
