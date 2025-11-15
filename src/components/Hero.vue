@@ -90,7 +90,7 @@
             </div>
 
             <!-- Small images staggered -->
-            <div class="mockup-small-group">
+            <div class="mockup-small-row">
               <div class="mockup-card mockup-small">
                 <img
                   src="/assets/generated-hirka.webp"

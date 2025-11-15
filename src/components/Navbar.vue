@@ -1,5 +1,12 @@
 <template>
   <nav class="navbar navbar-light" :class="{ scrolled: isScrolled }">
+    <!-- Mobile menu backdrop -->
+    <div
+      v-if="isMenuOpen"
+      class="navbar-backdrop"
+      @click="closeMenu"
+    ></div>
+
     <div class="container">
       <div class="navbar-content">
         <div class="navbar-left">
@@ -12,16 +19,16 @@
             />
           </router-link>
 
-          <div class="navbar-menu">
+          <div class="navbar-menu" :class="{ active: isMenuOpen }">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="#example" class="nav-link">Example</a>
+                <a href="#example" class="nav-link" @click="closeMenu">Example</a>
               </li>
               <li class="nav-item">
-                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#faq" class="nav-link" @click="closeMenu">FAQ</a>
               </li>
               <li class="nav-item">
-                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#pricing" class="nav-link" @click="closeMenu">Pricing</a>
               </li>
             </ul>
           </div>
@@ -29,6 +36,11 @@
 
         <button class="btn btn-primary navbar-cta" @click="handleTryForFree">
           Try For Free
+        </button>
+
+        <button class="navbar-toggler" @click="toggleMenu" aria-label="Toggle navigation">
+          <span v-if="!isMenuOpen">☰</span>
+          <span v-else>✕</span>
         </button>
       </div>
     </div>
@@ -41,13 +53,16 @@ export default {
   data() {
     return {
       isScrolled: false,
+      isMenuOpen: false,
     }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('resize', this.handleResize)
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     handleScroll() {
@@ -71,6 +86,25 @@ export default {
         ctaButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
         // Optional: auto-click after scroll
         setTimeout(() => ctaButton.focus(), 500)
+      }
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+      // Lock/unlock body scroll when menu is open
+      if (this.isMenuOpen) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = ''
+      }
+    },
+    closeMenu() {
+      this.isMenuOpen = false
+      document.body.style.overflow = ''
+    },
+    handleResize() {
+      // Close menu on desktop resize
+      if (window.innerWidth > 1024) {
+        this.closeMenu()
       }
     },
   },

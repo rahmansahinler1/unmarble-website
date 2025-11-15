@@ -211,6 +211,26 @@ body {
   }
 }
 
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* ================================
    Navbar Styles
 ================================ */
@@ -272,7 +292,7 @@ body {
 }
 
 .navbar-toggler {
-  display: none;
+  display: none !important;
   background: none;
   border: none;
   font-size: 24px;
@@ -283,14 +303,25 @@ body {
   z-index: 1001;
 }
 
+.navbar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: fade-in 0.3s ease-out;
+}
+
 .navbar-menu {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .navbar-nav {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 2rem;
   list-style: none;
@@ -518,7 +549,7 @@ body {
   flex-shrink: 0;
 }
 
-.mockup-small-group {
+.mockup-small-row {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -572,6 +603,137 @@ body {
   .hero-section .container,
   .navbar .container {
     padding: 0 2.5rem;
+  }
+}
+
+/* Mid-Level Laptops (1024px-1368px) */
+@media (min-width: 1024px) and (max-width: 1368px) {
+  .container,
+  .hero-section .container,
+  .navbar .container {
+    padding: 0 2.5rem;
+  }
+
+  /* Navbar adjustments for mid-laptops */
+  .navbar-logo {
+    height: 52px;
+  }
+
+  .navbar-left {
+    gap: 1.75rem;
+  }
+
+  .navbar-nav {
+    gap: 1.75rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 15px;
+  }
+
+  .navbar-cta {
+    padding: 0.45rem 1.35rem;
+    font-size: 15px;
+  }
+
+  /* Hero section adjustments for mid-laptops */
+  .text-header {
+    font-size: 58px;
+  }
+
+  .text-second {
+    font-size: 22px;
+  }
+
+  .text-third {
+    font-size: 17px;
+  }
+
+  .hero-grid {
+    gap: 3rem;
+  }
+
+  .mockup-large {
+    width: 320px;
+    height: 440px;
+  }
+
+  .mockup-small {
+    width: 160px;
+    height: 220px;
+  }
+}
+
+/* Tablets (768px-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container,
+  .hero-section .container,
+  .navbar .container {
+    padding: 0 2rem;
+  }
+
+  /* Navbar adjustments for tablets - NO hamburger menu */
+  .navbar-logo {
+    height: 36px;
+  }
+
+  .navbar-left {
+    gap: 1.25rem;
+  }
+
+  .navbar-nav {
+    gap: 1.25rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+
+  .navbar-cta {
+    padding: 0.4rem 1.2rem;
+    font-size: 14px;
+  }
+
+  /* Hero section side-by-side layout for tablets */
+  .text-header {
+    font-size: 42px;
+  }
+
+  .text-second {
+    font-size: 18px;
+  }
+
+  .text-third {
+    font-size: 15px;
+  }
+
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-cta-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .btn-google {
+    width: auto;
+    max-width: none;
+  }
+
+  .hero-free-text {
+    text-align: left;
+  }
+
+  .mockup-large {
+    width: 240px;
+    height: 330px;
+  }
+
+  .mockup-small {
+    width: 115px;
+    height: 160px;
   }
 }
 
@@ -682,15 +844,20 @@ body {
     flex-direction: column;
     gap: 1rem;
     min-height: auto;
+    align-items: center;
   }
 
   .hero-content {
     text-align: left;
     max-width: 100%;
+    width: 100%;
   }
 
   .hero-visuals {
     max-width: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero-cta-wrapper {
@@ -709,70 +876,58 @@ body {
   }
 
   .mockup-grid {
-    max-width: 450px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
     margin: 0 auto;
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+
+  .mockup-small-row {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
   }
 
   .mockup-large {
-    width: 224px;
-    height: 280px;
+    width: 240px;
+    height: 330px;
   }
 
   .mockup-small {
-    width: 144px;
-    height: 180px;
+    width: 115px;
+    height: 157px;
   }
 
   .navbar {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
   }
 
   .navbar .container {
-    padding: 0 5%;
+    padding: 0 1.5rem;
   }
 
-  .navbar-toggler {
-    display: block;
+  /* Keep horizontal navbar - NO hamburger menu */
+  .navbar-logo {
+    height: 28px;
   }
 
-  .navbar-cta {
-    display: none;
-  }
-
-  .navbar-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 1rem;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transform: none;
-    position: fixed;
-  }
-
-  .navbar-menu.active {
-    display: block !important;
+  .navbar-left {
+    gap: 1rem;
   }
 
   .navbar-nav {
-    flex-direction: column !important;
     gap: 1rem;
-    align-items: stretch;
   }
 
-  .nav-item {
-    text-align: center;
+  .navbar-nav .nav-link {
+    font-size: 13px;
   }
 
-  .navbar-logo {
-    height: 32px;
+  .navbar-cta {
+    padding: 0.35rem 1rem;
+    font-size: 13px;
   }
 
   .footer {
@@ -809,18 +964,27 @@ body {
   }
 
   .mockup-grid {
-    max-width: 350px;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+
+  .mockup-small-row {
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: center;
   }
 
   .mockup-large {
-    width: 176px;
-    height: 220px;
+    width: 200px;
+    height: 275px;
   }
 
   .mockup-small {
-    width: 112px;
-    height: 140px;
+    width: 95px;
+    height: 130px;
   }
 
   .placeholder-content p {
@@ -843,7 +1007,24 @@ body {
   }
 
   .navbar-logo {
-    height: 28px;
+    height: 24px;
+  }
+
+  .navbar-left {
+    gap: 0.75rem;
+  }
+
+  .navbar-nav {
+    gap: 0.75rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 12px;
+  }
+
+  .navbar-cta {
+    padding: 0.3rem 0.85rem;
+    font-size: 12px;
   }
 
   .footer .col-md-6 {
@@ -872,6 +1053,23 @@ body {
   }
 
   .navbar-logo {
-    height: 24px;
+    height: 22px;
+  }
+
+  .navbar-left {
+    gap: 0.5rem;
+  }
+
+  .navbar-nav {
+    gap: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 11px;
+  }
+
+  .navbar-cta {
+    padding: 0.25rem 0.7rem;
+    font-size: 11px;
   }
 }

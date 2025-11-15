@@ -2,7 +2,6 @@
   <div class="d-flex flex-column min-vh-100">
     <Navbar />
     <Hero />
-    <Footer />
   </div>
 </template>
 
@@ -16,7 +15,6 @@ export default {
   components: {
     Navbar,
     Hero,
-    Footer,
   },
 }
 </script>
