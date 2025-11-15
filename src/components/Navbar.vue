@@ -3,8 +3,13 @@
     <div class="container">
       <div class="navbar-content">
         <div class="navbar-left">
-          <router-link to="/" class="navbar-brand">
-            <img src="/assets/logo-small.svg" alt="Unmarble Logo" class="navbar-logo" />
+          <router-link to="/" class="navbar-brand" @click="handleLogoClick">
+            <img
+              ref="logo"
+              src="/assets/logo-small.svg"
+              alt="Unmarble Logo"
+              class="navbar-logo"
+            />
           </router-link>
 
           <div class="navbar-menu">
@@ -47,6 +52,17 @@ export default {
   methods: {
     handleScroll() {
       this.isScrolled = window.scrollY > 50
+    },
+    handleLogoClick() {
+      // Add pulse animation to logo
+      const logo = this.$refs.logo
+      if (logo) {
+        logo.classList.add('pulse-animation')
+        // Remove animation class after animation completes
+        setTimeout(() => {
+          logo.classList.remove('pulse-animation')
+        }, 500)
+      }
     },
     handleTryForFree() {
       // Trigger Google OAuth by scrolling to CTA button
