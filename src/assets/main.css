@@ -836,7 +836,114 @@ body {
 
 /* Tablet: 768px-1023px (design for 768px minimum) */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* Tablet styles will be added here */
+  /* Typography */
+  .text-header {
+    font-size: 36px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .text-second {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .text-third {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .hero-badge {
+    font-size: 8px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .hero-badge svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Navbar */
+  .navbar-logo {
+    height: 32px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 11px;
+  }
+
+  .navbar-cta {
+    font-size: 11px;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .hero-section .container {
+    padding: 0 2rem;
+  }
+
+  .hero-grid {
+    gap: 3rem;
+  }
+
+  /* CTA Section */
+  .btn-google {
+    font-size: 9px;
+    padding: 0.6rem 1rem;
+  }
+
+  .btn-google .google-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .hero-free-text {
+    font-size: 9px;
+  }
+
+  .hero-free-text svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Mockup Images - Keep desktop layout, scale down */
+  .mockup-card {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .mockup-card.mockup-large,
+  .mockup-large {
+    width: 162px;
+    height: 244px;
+  }
+
+  .mockup-card.mockup-small,
+  .mockup-small {
+    width: 78px;
+    height: 117px;
+  }
+
+  .mockup-grid {
+    gap: 0.75rem;
+  }
+
+  .mockup-small-row {
+    gap: 0.75rem;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 2rem;
+  }
+
+  /* Footer */
+  .footer-text {
+    font-size: 9px;
+  }
 }
 
 /* Desktop: 1024px+ uses default styles above (no media query needed) */
