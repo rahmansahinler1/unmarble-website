@@ -22,7 +22,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    open: true,
+    open: false,
     host: true,
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',

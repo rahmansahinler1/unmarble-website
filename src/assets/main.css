@@ -172,12 +172,22 @@ body {
 .navbar {
   background-color: transparent;
   border-bottom: none;
-  padding: 1.5rem 0;
-  position: relative;
+  position: sticky;
+  padding: 0.1rem 0;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: var(--color-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .navbar .container {
-  padding: 0 15%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .navbar-content {
@@ -185,7 +195,12 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: relative;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .navbar-brand {
@@ -200,7 +215,7 @@ body {
 }
 
 .navbar-logo {
-  height: 128px;
+  height: 64px;
   width: auto;
 }
 
@@ -218,11 +233,7 @@ body {
 
 .navbar-menu {
   display: flex !important;
-  justify-content: center;
   flex-direction: row !important;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .navbar-nav {
@@ -242,7 +253,7 @@ body {
 .navbar-nav .nav-link {
   font-family: var(--font-family-base);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -257,6 +268,7 @@ body {
   border-radius: 0.75rem;
   white-space: nowrap;
   font-size: 16px;
+  font-weight: 500;
 }
 
 /* ================================
@@ -297,16 +309,16 @@ body {
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
+  gap: 4rem;
   min-height: calc(100vh - 200px);
 }
 
 .hero-content {
-  max-width: 100%;
-  width: 100%;
+  flex: 1;
+  max-width: 50%;
 }
 
 .hero-badge {
@@ -376,7 +388,10 @@ body {
 
 .hero-visuals {
   position: relative;
-  height: 100%;
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .mockup-grid {
@@ -384,7 +399,7 @@ body {
   gap: 1rem;
   width: 100%;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .mockup-card {
@@ -451,29 +466,38 @@ body {
 
 .container {
   width: 100%;
-  max-width: none;
-  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .hero-section .container {
-  padding: 0 15%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
 }
 
 @media (max-width: 1440px) {
-  .hero-section .container {
-    padding: 0 12%;
+  .container,
+  .hero-section .container,
+  .navbar .container {
+    padding: 0 2.5rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .hero-section .container {
-    padding: 0 8%;
+  .container,
+  .hero-section .container,
+  .navbar .container {
+    padding: 0 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-section .container {
-    padding: 0 5%;
+  .container,
+  .hero-section .container,
+  .navbar .container {
+    padding: 0 1.5rem;
   }
 }
 
@@ -565,13 +589,18 @@ body {
   }
 
   .hero-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1rem;
     min-height: auto;
   }
 
   .hero-content {
     text-align: left;
+    max-width: 100%;
+  }
+
+  .hero-visuals {
+    max-width: 100%;
   }
 
   .hero-cta-wrapper {
