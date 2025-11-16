@@ -29,7 +29,7 @@
           </p>
 
           <!-- CTA -->
-          <div class="hero-cta-wrapper mt-5 d-flex align-items-center gap-4">
+          <div class="hero-cta-wrapper mt-3 mt-md-5 d-flex align-items-center gap-4">
             <GoogleLogin :callback="handleGoogleLogin">
               <button class="btn btn-google btn-lg">
                 <svg
