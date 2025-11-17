@@ -626,21 +626,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 /* Left Column: Selectors */
 .example-selectors {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .selector-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /* Clothing Items with Dynamic Sizing */
@@ -664,7 +664,7 @@ body {
 
 .clothing-item.smaller:hover {
   opacity: 0.8;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Active item (selected) - bigger and centered */
@@ -681,30 +681,6 @@ body {
   justify-content: center;
 }
 
-.clothing-item:nth-child(1).active {
-  order: 2;
-}
-
-.clothing-item:nth-child(2).active {
-  order: 2;
-}
-
-.clothing-item:nth-child(3).active {
-  order: 2;
-}
-
-.clothing-item:nth-child(1):not(.active) {
-  order: 1;
-}
-
-.clothing-item:nth-child(2):not(.active) {
-  order: 3;
-}
-
-.clothing-item:nth-child(3):not(.active) {
-  order: 3;
-}
-
 .item-image {
   width: 100%;
   aspect-ratio: 1/1;
@@ -719,7 +695,7 @@ body {
 .item-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -729,6 +705,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin: 0 2rem;
 }
 
 .arrow-icon {
