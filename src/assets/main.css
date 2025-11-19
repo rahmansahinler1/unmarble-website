@@ -608,7 +608,7 @@ body {
   flex-direction: row;
   align-items: flex-start;
   gap: 1.5rem;
-  margin: 1.5rem 0;
+  margin: 3rem 0;
   padding: 0;
 }
 
@@ -659,8 +659,8 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
   overflow: hidden;
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   opacity: 0.6;
   border: 2px solid transparent;
 }
@@ -679,8 +679,8 @@ body {
 }
 
 .avatar-button.active {
-  width: 64px;
-  height: 64px;
+  width: 81px;
+  height: 81px;
   opacity: 1;
   border: 3px solid var(--color-primary);
   box-shadow: 0 4px 12px rgba(0, 183, 237, 0.3);
