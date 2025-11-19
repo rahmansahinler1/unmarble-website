@@ -627,7 +627,22 @@ body {
   margin-bottom: 3rem;
 }
 
-.example-header .text-header {
+.example-title {
+  font-family: var(--font-family-base);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.example-description {
+  font-family: var(--font-family-base);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-secondary);
+  opacity: 0.9;
   margin-bottom: 0;
 }
 
@@ -991,6 +1006,15 @@ body {
     margin-bottom: 1.5rem;
   }
 
+  .example-title {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+  }
+
+  .example-description {
+    font-size: 14px;
+  }
+
   .example-grid {
     flex-direction: column;
     gap: 1.5rem;
@@ -1154,6 +1178,15 @@ body {
 
   .example-header {
     margin-bottom: 2rem;
+  }
+
+  .example-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    margin-bottom: 0.625rem;
+  }
+
+  .example-description {
+    font-size: clamp(16px, 2vw, 20px);
   }
 
   .example-grid {

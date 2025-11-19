@@ -5,7 +5,8 @@
         <div class="example-content">
           <!-- Section Header -->
           <div class="example-header">
-            <h2 class="text-header">Design Without Limits</h2>
+            <h2 class="example-title">Design Without Limits</h2>
+            <p class="example-description">See how every outfit looks on you in seconds</p>
           </div>
 
           <div class="example-grid">
