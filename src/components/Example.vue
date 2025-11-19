@@ -1,19 +1,20 @@
 <template>
   <section id="example" class="example-section">
     <div class="container">
-      <div class="example-content">
-        <!-- Section Header -->
-        <div class="example-header">
-          <h2 class="text-header">Design your outfit</h2>
-        </div>
+      <div class="example-white-container">
+        <div class="example-content">
+          <!-- Section Header -->
+          <div class="example-header">
+            <h2 class="text-header">Design Without Limits</h2>
+          </div>
 
-        <div class="example-grid">
+          <div class="example-grid">
           <!-- Left Column: Selectors -->
           <div class="example-selectors">
             <!-- Gender Selector -->
             <div class="selector-row">
               <button
-                v-for="gender in ['man', 'woman']"
+                v-for="gender in ['woman', 'man']"
                 :key="gender"
                 class="clothing-item"
                 :class="{ active: selectedGender === gender, smaller: selectedGender !== gender }"
@@ -92,6 +93,7 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
 </template>
 
@@ -100,7 +102,7 @@ export default {
   name: 'Example',
   data() {
     return {
-      selectedGender: 'man',
+      selectedGender: 'woman',
       selectedBody: '1',
       selectedLegs: '1',
       selectedShoes: '1',

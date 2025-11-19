@@ -406,7 +406,7 @@ body {
 ================================ */
 
 .hero-section {
-  padding: 4rem 0 6rem;
+  padding: 4rem 0 2rem;
   background-color: var(--color-bg);
 }
 
@@ -604,17 +604,26 @@ body {
 ================================ */
 
 .example-section {
-  padding: 2rem 0;
-  background-color: white;
+  padding: 1rem 0 4rem;
+  background-color: var(--color-bg);
 }
 
-.example-content {
+.example-white-container {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
+.example-content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .example-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
 }
 
@@ -711,9 +720,9 @@ body {
 }
 
 .arrow-icon {
-  width: 60px;
+  width: 120px;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 /* Right Column: Preview */
@@ -731,8 +740,8 @@ body {
 }
 
 .preview-image-wrapper {
-  width: min(385px, calc((385 / 1400) * 100vw));
-  height: auto;
+  width: auto;
+  height: 700px;
   aspect-ratio: 216 / 326;
   overflow: hidden;
   background-color: white;
@@ -968,6 +977,54 @@ body {
     flex-shrink: 0;
   }  
 
+  /* Example Section */
+  .example-section {
+    padding: 0.5rem 0 2rem;
+  }
+
+  .example-white-container {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .example-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .example-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .example-selectors {
+    gap: 1.5rem;
+  }
+
+  .selector-row {
+    gap: 1rem;
+  }
+
+  .clothing-item.smaller {
+    width: 50px;
+  }
+
+  .clothing-item.active {
+    width: 80px;
+  }
+
+  .example-arrow {
+    margin: 0;
+    transform: rotate(90deg);
+  }
+
+  .arrow-icon {
+    width: 60px;
+  }
+
+  .preview-image-wrapper {
+    height: 400px;
+  }
+
   /* Container */
   .container {
     padding: 0 1rem;
@@ -1084,6 +1141,47 @@ body {
 
   .mockup-small-row {
     gap: 0.75rem;
+  }
+
+  /* Example Section */
+  .example-section {
+    padding: 0.75rem 0 3rem;
+  }
+
+  .example-white-container {
+    padding: 2rem;
+  }
+
+  .example-header {
+    margin-bottom: 2rem;
+  }
+
+  .example-grid {
+    gap: 2rem;
+  }
+
+  .example-selectors {
+    gap: 2rem;
+  }
+
+  .selector-row {
+    gap: 1.25rem;
+  }
+
+  .clothing-item.smaller {
+    width: 60px;
+  }
+
+  .clothing-item.active {
+    width: 100px;
+  }
+
+  .arrow-icon {
+    width: 90px;
+  }
+
+  .preview-image-wrapper {
+    height: 550px;
   }
 
   /* Container */
