@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       activeTestimonialId: 2,
+      rotationInterval: null,
       testimonials: [
         {
           id: 1,
@@ -67,9 +68,34 @@ export default {
       return this.testimonials.find((t) => t.id === this.activeTestimonialId) || this.testimonials[1]
     },
   },
+  mounted() {
+    this.startAutoRotation()
+  },
+  beforeUnmount() {
+    this.stopAutoRotation()
+  },
   methods: {
     selectTestimonial(id) {
       this.activeTestimonialId = id
+      // Reset the timer when user manually selects a testimonial
+      this.stopAutoRotation()
+      this.startAutoRotation()
+    },
+    startAutoRotation() {
+      this.rotationInterval = setInterval(() => {
+        this.advanceTestimonial()
+      }, 5000) // Rotate every 5 seconds
+    },
+    stopAutoRotation() {
+      if (this.rotationInterval) {
+        clearInterval(this.rotationInterval)
+        this.rotationInterval = null
+      }
+    },
+    advanceTestimonial() {
+      const currentIndex = this.testimonials.findIndex((t) => t.id === this.activeTestimonialId)
+      const nextIndex = (currentIndex + 1) % this.testimonials.length
+      this.activeTestimonialId = this.testimonials[nextIndex].id
     },
   },
 }
