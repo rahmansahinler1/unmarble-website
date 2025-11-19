@@ -1279,7 +1279,7 @@ body {
 
   /* Hero Section */
   .hero-section {
-    padding: 3rem 0 4rem;
+    padding: 3rem 0 2rem;
   }
 
   .hero-section .container {
@@ -1288,6 +1288,7 @@ body {
 
   .hero-grid {
     gap: 3rem;
+    min-height: auto;
   }
 
   /* CTA Section */
@@ -1340,6 +1341,7 @@ body {
   /* Testimonial Carousel */
   .testimonial-carousel {
     gap: 1rem;
+    margin: 1.5rem 0;
   }
 
   .avatar-button {
