@@ -1183,37 +1183,40 @@ body {
   }
 
   .example-grid {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .example-selectors {
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
 
   .selector-row {
-    gap: 1rem;
+    gap: 0.5rem;
+    justify-content: flex-start;
   }
 
   .clothing-item.smaller {
-    width: 50px;
+    width: clamp(30px, calc(30px + (35 - 30) * ((100vw - 360px) / 70)), 35px);
   }
 
   .clothing-item.active {
-    width: 80px;
+    width: clamp(40px, calc(40px + (50 - 40) * ((100vw - 360px) / 70)), 50px);
   }
 
   .example-arrow {
     margin: 0;
-    transform: rotate(90deg);
+    transform: none;
   }
 
   .arrow-icon {
-    width: 60px;
+    width: clamp(30px, calc(30px + (36 - 30) * ((100vw - 360px) / 70)), 36px);
   }
 
   .preview-image-wrapper {
-    height: 400px;
+    height: clamp(200px, calc(200px + (260 - 200) * ((100vw - 360px) / 70)), 260px);
   }
 
   /* Container */
