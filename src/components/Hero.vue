@@ -28,6 +28,9 @@
             No editing skills needed.
           </p>
 
+          <!-- Social Proof Carousel -->
+          <TestimonialCarousel />
+
           <!-- CTA -->
           <div class="hero-cta-wrapper mt-3 mt-md-5 d-flex align-items-center gap-4">
             <GoogleLogin :callback="handleGoogleLogin">
@@ -117,11 +120,13 @@
 import { GoogleLogin } from 'vue3-google-login'
 import { mapStores } from 'pinia'
 import useAuthStore from '@/stores/auth'
+import TestimonialCarousel from '@/components/TestimonialCarousel.vue'
 
 export default {
   name: 'Hero',
   components: {
     GoogleLogin,
+    TestimonialCarousel,
   },
   computed: {
     ...mapStores(useAuthStore),

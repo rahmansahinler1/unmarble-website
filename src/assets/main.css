@@ -600,6 +600,123 @@ body {
 }
 
 /* ================================
+   Testimonial Carousel (Social Proof)
+================================ */
+
+.testimonial-carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.testimonial-avatars {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star-icon {
+  color: #fbbf24;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.rating-text {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0.6;
+  margin-left: 0.25rem;
+}
+
+.avatar-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  opacity: 0.6;
+  border: 2px solid transparent;
+}
+
+.avatar-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.avatar-button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.avatar-button.active {
+  width: 64px;
+  height: 64px;
+  opacity: 1;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 183, 237, 0.3);
+  order: 0;
+  animation: avatar-select 0.4s ease-out;
+}
+
+.testimonial-quote {
+  text-align: left;
+  margin: 0;
+}
+
+.testimonial-quote p {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  font-style: italic;
+  margin: 0;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes avatar-select {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================================
    Example Section (Interactive Demo)
 ================================ */
 
@@ -990,7 +1107,42 @@ body {
     width: calc((104 / 360) * 100vw);
     aspect-ratio: 104 / 155;
     flex-shrink: 0;
-  }  
+  }
+
+  /* Testimonial Carousel */
+  .testimonial-carousel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .star-icon {
+    font-size: 14px;
+  }
+
+  .rating-text {
+    font-size: 12px;
+  }
+
+  .avatar-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .avatar-button.active {
+    width: 48px;
+    height: 48px;
+  }
+
+  .testimonial-quote {
+    max-width: 100%;
+  }
+
+  .testimonial-quote p {
+    font-size: 12px;
+  }
 
   /* Example Section */
   .example-section {
@@ -1165,6 +1317,33 @@ body {
 
   .mockup-small-row {
     gap: 0.75rem;
+  }
+
+  /* Testimonial Carousel */
+  .testimonial-carousel {
+    gap: 1rem;
+  }
+
+  .avatar-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar-button.active {
+    width: 56px;
+    height: 56px;
+  }
+
+  .star-icon {
+    font-size: 16px;
+  }
+
+  .rating-text {
+    font-size: 12px;
+  }
+
+  .testimonial-quote p {
+    font-size: 14px;
   }
 
   /* Example Section */
