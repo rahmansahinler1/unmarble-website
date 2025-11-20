@@ -889,6 +889,90 @@ body {
 }
 
 /* ================================
+   Product Section
+================================ */
+
+.product-section {
+  padding: 4rem 0;
+  background-color: var(--color-bg);
+}
+
+.product-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.product-content {
+  flex: 1;
+  max-width: 45%;
+}
+
+.product-badge {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 0rem;
+  display: inline-block;
+}
+
+.product-title {
+  font-family: var(--font-family-base);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.product-description {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+.btn-product {
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-product:hover {
+  background-color: #0095c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 183, 237, 0.3);
+}
+
+.product-visual {
+  flex: 1;
+  max-width: 55%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ================================
    Authentication Pages
 ================================ */
 
@@ -1224,6 +1308,45 @@ body {
     padding: 0 1rem;
   }
 
+  /* Product Section */
+  .product-section {
+    padding: 2rem 0;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .product-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .product-badge {
+    font-size: 12px;
+  }
+
+  .product-title {
+    font-size: 32px;
+    margin-bottom: 1rem;
+  }
+
+  .product-description {
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-product {
+    font-size: 14px;
+    padding: 0.75rem 2rem;
+  }
+
+  .product-visual {
+    max-width: 100%;
+    justify-content: center;
+  }
+
   /* Footer */
   .footer {
     padding: 1.5rem 0;
@@ -1419,6 +1542,28 @@ body {
   /* Container */
   .container {
     padding: 0 clamp(1.5rem, 2vw, 2rem);
+  }
+
+  /* Product Section */
+  .product-section {
+    padding: 3rem 0;
+  }
+
+  .product-grid {
+    gap: 3rem;
+  }
+
+  .product-title {
+    font-size: clamp(36px, 4.5vw, 56px);
+  }
+
+  .product-description {
+    font-size: clamp(16px, 2vw, 18px);
+  }
+
+  .btn-product {
+    font-size: clamp(14px, 1.5vw, 16px);
+    padding: clamp(0.75rem, 1vw, 1rem) clamp(2rem, 2.5vw, 2.5rem);
   }
 
   /* Footer */

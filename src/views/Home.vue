@@ -3,6 +3,7 @@
     <Navbar />
     <Hero />
     <Example />
+    <Product1 />
     <Footer />
   </div>
 </template>
@@ -11,6 +12,7 @@
 import Navbar from '@/components/Navbar.vue'
 import Hero from '@/components/Hero.vue'
 import Example from '@/components/Example.vue'
+import Product1 from '@/components/Product1.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
@@ -19,6 +21,7 @@ export default {
     Navbar,
     Hero,
     Example,
+    Product1,
     Footer,
   },
 }
