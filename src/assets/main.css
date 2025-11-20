@@ -954,6 +954,7 @@ body {
 
 .btn-product:hover {
   background-color: #0095c7;
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 183, 237, 0.3);
 }
@@ -1567,8 +1568,12 @@ body {
     gap: 3rem;
   }
 
+  .product-badge {
+    font-size: clamp(12px, 1.5vw, 14px);
+  }
+
   .product-title {
-    font-size: clamp(36px, 4.5vw, 56px);
+    font-size: clamp(28px, 3.5vw, 40px);
   }
 
   .product-description {
