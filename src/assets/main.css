@@ -378,26 +378,65 @@ body {
 ================================ */
 
 .footer {
-  background-color: white;
-  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
   padding: 2rem 0;
   margin-top: auto;
 }
 
-.footer-text {
-  font-family: var(--font-family-base);
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--color-secondary);
+.footer-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
 }
 
-.footer a {
+.footer-text {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+/* Online Status Indicator */
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+  animation: pulse-indicator 2s ease-in-out infinite;
+}
+
+@keyframes pulse-indicator {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+  }
+}
+
+/* Links */
+.footer-link {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 400;
   color: var(--color-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer a:hover {
+.footer-link:hover {
   color: var(--color-primary);
 }
 
@@ -1489,8 +1528,24 @@ body {
     padding: 1.5rem 0;
   }
 
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
   .footer-text {
-    font-size: 5px;
+    font-size: 12px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+  }
+
+  .status-indicator {
+    width: 6px;
+    height: 6px;
   }
 }
 
@@ -1726,6 +1781,19 @@ body {
 
   /* Footer */
   .footer-text {
-    font-size: 9px;
+    font-size: 13px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+  }
+
+  .footer-content {
+    gap: 1.5rem;
+  }
+
+  .status-indicator {
+    width: 7px;
+    height: 7px;
   }
 }

@@ -1,16 +1,14 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="footer-text mb-0">&copy; 2025 Unmarble. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-status">
+          <span class="status-indicator"></span>
+          <span class="footer-text">Online</span>
         </div>
-        <div class="col-md-6 text-center text-md-end">
-          <p class="footer-text mb-0">
-            <a href="#" class="me-3">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </p>
-        </div>
+        <p class="footer-text">© 2025 Unmarble. All rights reserved.</p>
+        <a href="/privacy" class="footer-link">Privacy</a>
+        <a href="/terms" class="footer-link">Terms</a>
       </div>
     </div>
   </footer>
