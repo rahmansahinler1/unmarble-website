@@ -21,10 +21,10 @@
           </div>
           <h1 class="text-header">Try Clothes with AI</h1>
 
-          <p class="text-second mt-3">See yourself in different outfits.</p>
+          <p class="text-second mt-3">See yourself in different outfits</p>
 
           <p class="text-third">
-            Upload your photos and clothes, create your gallery, and design new looks on yourself.
+            Upload your photos and clothes, create your gallery, and design new looks.
             No editing skills needed.
           </p>
 

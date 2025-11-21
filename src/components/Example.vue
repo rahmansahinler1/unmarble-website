@@ -101,6 +101,14 @@
 <script>
 export default {
   name: 'Example',
+  mounted() {
+    // Start auto-rotation when component mounts
+    this.startAutoRotation()
+  },
+  beforeUnmount() {
+    // Clean up interval when component unmounts
+    this.stopAutoRotation()
+  },
   data() {
     return {
       selectedGender: 'woman',
@@ -123,6 +131,8 @@ export default {
           shoes: ['1', '2', '3'],
         },
       },
+      isAutoRotating: false,
+      rotationInterval: null,
     }
   },
   computed: {
@@ -132,6 +142,9 @@ export default {
   },
   methods: {
     selectGender(gender) {
+      // Stop auto-rotation when user interacts
+      this.stopAutoRotation()
+
       // Save current selections to lastSelections
       this.lastSelections[this.selectedGender] = {
         body: this.selectedBody,
@@ -148,18 +161,66 @@ export default {
       this.selectedShoes = this.lastSelections[gender].shoes
     },
     selectBody(bodyNumber) {
+      // Stop auto-rotation when user interacts
+      this.stopAutoRotation()
       this.selectedBody = bodyNumber
     },
     selectLegs(legsNumber) {
+      // Stop auto-rotation when user interacts
+      this.stopAutoRotation()
       this.selectedLegs = legsNumber
     },
     selectShoes(shoesNumber) {
+      // Stop auto-rotation when user interacts
+      this.stopAutoRotation()
       this.selectedShoes = shoesNumber
     },
     handleImageError(event) {
       console.error('Failed to load image:', this.outcomeImagePath)
       // Optionally set a fallback image
       // event.target.src = '/assets/placeholder.webp'
+    },
+    startAutoRotation() {
+      this.isAutoRotating = true
+
+      this.rotationInterval = setInterval(() => {
+        // Randomly select gender (50/50 chance)
+        const genders = ['woman', 'man']
+        const randomGender = genders[Math.floor(Math.random() * genders.length)]
+
+        // Randomly select clothing items
+        const randomBody = this.clothingOptions[randomGender].body[
+          Math.floor(Math.random() * this.clothingOptions[randomGender].body.length)
+        ]
+        const randomLegs = this.clothingOptions[randomGender].legs[
+          Math.floor(Math.random() * this.clothingOptions[randomGender].legs.length)
+        ]
+        const randomShoes = this.clothingOptions[randomGender].shoes[
+          Math.floor(Math.random() * this.clothingOptions[randomGender].shoes.length)
+        ]
+
+        // Apply selections (without triggering stopAutoRotation)
+        if (randomGender !== this.selectedGender) {
+          // Save current selections before switching
+          this.lastSelections[this.selectedGender] = {
+            body: this.selectedBody,
+            legs: this.selectedLegs,
+            shoes: this.selectedShoes,
+          }
+        }
+
+        this.selectedGender = randomGender
+        this.selectedBody = randomBody
+        this.selectedLegs = randomLegs
+        this.selectedShoes = randomShoes
+      }, 3000) // Change every 3 seconds
+    },
+    stopAutoRotation() {
+      if (this.rotationInterval) {
+        clearInterval(this.rotationInterval)
+        this.rotationInterval = null
+      }
+      this.isAutoRotating = false
     },
   },
 }
