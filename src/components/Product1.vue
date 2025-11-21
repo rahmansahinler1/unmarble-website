@@ -1,5 +1,5 @@
 <template>
-  <section class="product-section">
+  <section id="product" class="product-section">
     <div class="container">
       <div class="product-grid">
         <!-- Left: Content -->

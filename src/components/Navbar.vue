@@ -22,13 +22,13 @@
           <div class="navbar-menu" :class="{ active: isMenuOpen }">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="#example" class="nav-link" @click="closeMenu">Example</a>
+                <a href="#example" class="nav-link" @click.prevent="scrollToSection('example')">Example</a>
               </li>
               <li class="nav-item">
-                <a href="#faq" class="nav-link" @click="closeMenu">FAQ</a>
+                <a href="#product" class="nav-link" @click.prevent="scrollToSection('product')">Product</a>
               </li>
               <li class="nav-item">
-                <a href="#pricing" class="nav-link" @click="closeMenu">Pricing</a>
+                <a href="#faq" class="nav-link" @click.prevent="scrollToSection('faq')">FAQ</a>
               </li>
             </ul>
           </div>
@@ -68,7 +68,7 @@ export default {
     handleScroll() {
       this.isScrolled = window.scrollY > 50
     },
-    handleLogoClick() {
+    handleLogoClick(event) {
       // Add pulse animation to logo
       const logo = this.$refs.logo
       if (logo) {
@@ -78,6 +78,9 @@ export default {
           logo.classList.remove('pulse-animation')
         }, 500)
       }
+
+      // Scroll to hero section
+      this.scrollToSection('hero')
     },
     handleTryForFree() {
       // Trigger Google OAuth by scrolling to CTA button
@@ -100,6 +103,35 @@ export default {
     closeMenu() {
       this.isMenuOpen = false
       document.body.style.overflow = ''
+    },
+    scrollToSection(sectionId) {
+      // Close mobile menu
+      this.closeMenu()
+
+      // Check if we're on the home page
+      if (this.$route.path !== '/') {
+        // Navigate to home page first, then scroll
+        this.$router.push(`/#${sectionId}`).then(() => {
+          // Wait for DOM to update, then scroll
+          this.$nextTick(() => {
+            this.performScroll(sectionId)
+          })
+        })
+      } else {
+        // Already on home page, just scroll
+        this.performScroll(sectionId)
+        // Update URL hash
+        window.history.pushState(null, '', `#${sectionId}`)
+      }
+    },
+    performScroll(sectionId) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
     },
     handleResize() {
       // Close menu on desktop resize
