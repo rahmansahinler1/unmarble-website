@@ -5,6 +5,7 @@
     <Example />
     <Product1 />
     <Product2 />
+    <FAQ />
     <Footer />
   </div>
 </template>
@@ -15,6 +16,7 @@ import Hero from '@/components/Hero.vue'
 import Example from '@/components/Example.vue'
 import Product1 from '@/components/Product1.vue'
 import Product2 from '@/components/Product2.vue'
+import FAQ from '@/components/FAQ.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
@@ -25,6 +27,7 @@ export default {
     Example,
     Product1,
     Product2,
+    FAQ,
     Footer,
   },
 }
