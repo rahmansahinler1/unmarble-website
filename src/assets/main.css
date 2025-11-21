@@ -379,7 +379,7 @@ body {
 
 .footer {
   background-color: var(--color-bg);
-  padding: 2rem 0;
+  padding: 3rem 0;
   margin-top: auto;
 }
 
@@ -445,7 +445,7 @@ body {
 ================================ */
 
 .hero-section {
-  padding: 4rem 0 2rem;
+  padding: 5rem 0;
   background-color: var(--color-bg);
 }
 
@@ -760,7 +760,7 @@ body {
 ================================ */
 
 .example-section {
-  padding: 1rem 0 4rem;
+  padding: 5rem 0;
   background-color: var(--color-bg);
 }
 
@@ -932,7 +932,7 @@ body {
 ================================ */
 
 .product-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background-color: var(--color-bg);
 }
 
@@ -1031,7 +1031,7 @@ body {
 ================================ */
 
 .faq-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background-color: var(--color-bg);
 }
 
@@ -1233,7 +1233,7 @@ body {
 
   /* Hero Section */
   .hero-section {
-    padding: 1rem 0 3rem;
+    padding: 2rem 0;
   }
 
   .hero-section .container {
@@ -1387,7 +1387,7 @@ body {
 
   /* Example Section */
   .example-section {
-    padding: 0.5rem 0 2rem;
+    padding: 2rem 0;
   }
 
   .example-white-container {
@@ -1525,7 +1525,7 @@ body {
 
   /* Footer */
   .footer {
-    padding: 1.5rem 0;
+    padding: 2rem 0;
   }
 
   .footer-content {
@@ -1594,7 +1594,7 @@ body {
 
   /* Hero Section */
   .hero-section {
-    padding: 3rem 0 2rem;
+    padding: 2.5rem 0;
   }
 
   .hero-section .container {
@@ -1683,7 +1683,7 @@ body {
 
   /* Example Section */
   .example-section {
-    padding: 0.75rem 0 3rem;
+    padding: 2.5rem 0;
   }
 
   .example-white-container {
