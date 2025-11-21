@@ -11,7 +11,7 @@
             modeling. Let AI help you to design your very realistic outfit in just seconds with one
             click.
           </p>
-          <button class="btn btn-product">Try Unmarble</button>
+          <button class="btn btn-product" @click="triggerGoogleLogin">Try Unmarble</button>
         </div>
 
         <!-- Right: Image -->
@@ -28,7 +28,10 @@
 </template>
 
 <script>
+import googleAuthMixin from '@/mixins/googleAuth'
+
 export default {
   name: 'Product1',
+  mixins: [googleAuthMixin],
 }
 </script>

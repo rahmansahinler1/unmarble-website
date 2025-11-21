@@ -48,8 +48,11 @@
 </template>
 
 <script>
+import googleAuthMixin from '@/mixins/googleAuth'
+
 export default {
   name: 'Navbar',
+  mixins: [googleAuthMixin],
   data() {
     return {
       isScrolled: false,
@@ -83,13 +86,8 @@ export default {
       this.scrollToSection('hero')
     },
     handleTryForFree() {
-      // Trigger Google OAuth by scrolling to CTA button
-      const ctaButton = document.querySelector('.hero-cta button')
-      if (ctaButton) {
-        ctaButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        // Optional: auto-click after scroll
-        setTimeout(() => ctaButton.focus(), 500)
-      }
+      // Trigger Google OAuth
+      this.triggerGoogleLogin()
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen

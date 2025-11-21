@@ -11,7 +11,7 @@
             styles, colors, and combinations. Save your favorite looks and create a collection that
             truly represents your unique style and personality.
           </p>
-          <button class="btn btn-product">Create Now</button>
+          <button class="btn btn-product" @click="triggerGoogleLogin">Create Now</button>
         </div>
 
         <!-- Right: Visual -->
@@ -28,7 +28,10 @@
 </template>
 
 <script>
+import googleAuthMixin from '@/mixins/googleAuth'
+
 export default {
   name: 'Product2',
+  mixins: [googleAuthMixin],
 }
 </script>
