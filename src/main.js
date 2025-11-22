@@ -1,7 +1,8 @@
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
+import { createHead } from '@vueuse/head'
 import App from './App.vue'
-import router from './router'
+import routes from './router'
 import './assets/main.css'
 import vue3GoogleLogin from 'vue3-google-login'
 
@@ -27,22 +28,31 @@ function clearAuthData() {
   document.cookie = `authToken=; domain=${domain}; path=/; max-age=0`
 }
 
-const token = getAuthToken()
+export const createApp = ViteSSG(
+  App,
+  { routes },
+  ({ app, router }) => {
+    // Pinia store
+    const pinia = createPinia()
+    app.use(pinia)
 
-if (token && isTokenValid(token)) {
-  window.location.href = import.meta.env.VITE_APP_URL
-} else {
-  if (token) {
-    clearAuthData()
+    // Head manager for meta tags
+    const head = createHead()
+    app.use(head)
+
+    // Google Login (only on client side)
+    if (!import.meta.env.SSR) {
+      app.use(vue3GoogleLogin, {
+        clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+      })
+
+      // Check auth token and redirect if needed
+      const token = getAuthToken()
+      if (token && isTokenValid(token)) {
+        window.location.href = import.meta.env.VITE_APP_URL
+      } else if (token) {
+        clearAuthData()
+      }
+    }
   }
-
-  const app = createApp(App)
-
-  app.use(createPinia())
-  app.use(router)
-  app.use(vue3GoogleLogin, {
-    clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-  })
-
-  app.mount('#app')
-}
+)

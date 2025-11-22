@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -36,6 +37,29 @@ export default {
   components: {
     Navbar,
     Footer,
+  },
+  setup() {
+    useHead({
+      title: 'Privacy Policy | Unmarble',
+      meta: [
+        {
+          name: 'description',
+          content: 'Unmarble Privacy Policy - Learn how we protect your data and ensure your photos are encrypted and stored securely.',
+        },
+        {
+          property: 'og:title',
+          content: 'Privacy Policy | Unmarble',
+        },
+        {
+          property: 'og:description',
+          content: 'Your privacy and security are our top priorities. Learn how Unmarble protects your personal photos and data.',
+        },
+        {
+          name: 'robots',
+          content: 'index, follow',
+        },
+      ],
+    })
   },
 }
 </script>

@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -52,6 +53,29 @@ export default {
   components: {
     Navbar,
     Footer,
+  },
+  setup() {
+    useHead({
+      title: 'Terms of Service | Unmarble',
+      meta: [
+        {
+          name: 'description',
+          content: 'Unmarble Terms of Service - User responsibilities, prohibited use, data security, and service availability.',
+        },
+        {
+          property: 'og:title',
+          content: 'Terms of Service | Unmarble',
+        },
+        {
+          property: 'og:description',
+          content: 'Read Unmarble\'s Terms of Service to understand user responsibilities and service guidelines.',
+        },
+        {
+          name: 'robots',
+          content: 'index, follow',
+        },
+      ],
+    })
   },
 }
 </script>
