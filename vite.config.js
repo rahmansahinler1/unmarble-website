@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command, mode, isSsrBuild }) => ({
   plugins: [vue(), vueDevTools()],
   base: '/',
   ssgOptions: {
@@ -21,7 +21,8 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
+        // Only apply manualChunks for client builds, not SSR
+        manualChunks: isSsrBuild ? undefined : {
           vendor: ['vue', 'pinia', 'vue-router'],
         },
       },
@@ -41,4 +42,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-})
+}))
