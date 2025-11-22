@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { useHead } from '@vueuse/head'
+import { useHead } from '@unhead/vue'
 import Navbar from '@/components/Navbar.vue'
 import Hero from '@/components/Hero.vue'
 import Example from '@/components/Example.vue'
@@ -33,7 +33,7 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Unmarble - AI-Powered Virtual Try-On | Try Clothes with AI',
+      title: 'Unmarble - The #1 AI Outfit Generator | Try Clothes with AI',
       meta: [
         {
           name: 'description',
@@ -41,7 +41,7 @@ export default {
         },
         {
           property: 'og:title',
-          content: 'Unmarble - AI-Powered Virtual Try-On | Try Clothes with AI',
+          content: 'Unmarble - The #1 AI Outfit Generator | Try Clothes with AI',
         },
         {
           property: 'og:description',
@@ -61,7 +61,7 @@ export default {
         },
         {
           name: 'twitter:title',
-          content: 'Unmarble - AI-Powered Virtual Try-On',
+          content: 'Unmarble - The #1 AI Outfit Generator',
         },
         {
           name: 'twitter:description',

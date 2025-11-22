@@ -1,6 +1,5 @@
 import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
-import { createHead } from '@vueuse/head'
 import App from './App.vue'
 import routes from './router'
 import './assets/main.css'
@@ -35,10 +34,6 @@ export const createApp = ViteSSG(
     // Pinia store
     const pinia = createPinia()
     app.use(pinia)
-
-    // Head manager for meta tags
-    const head = createHead()
-    app.use(head)
 
     // Google Login (only on client side)
     if (!import.meta.env.SSR) {
