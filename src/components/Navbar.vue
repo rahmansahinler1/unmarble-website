@@ -1,4 +1,10 @@
 <template>
+  <LegalConsentModal
+    v-if="showConsentModal"
+    @consent-given="handleConsentGiven"
+    @consent-declined="handleConsentDeclined"
+  />
+
   <nav class="navbar navbar-light" :class="{ scrolled: isScrolled }">
     <!-- Mobile menu backdrop -->
     <div
@@ -49,14 +55,20 @@
 
 <script>
 import googleAuthMixin from '@/mixins/googleAuth'
+import LegalConsentModal from '@/components/LegalConsentModal.vue'
+import useAuthStore from '@/stores/auth'
 
 export default {
   name: 'Navbar',
+  components: {
+    LegalConsentModal,
+  },
   mixins: [googleAuthMixin],
   data() {
     return {
       isScrolled: false,
       isMenuOpen: false,
+      showConsentModal: false,
     }
   },
   mounted() {
@@ -86,8 +98,27 @@ export default {
       this.scrollToSection('hero')
     },
     handleTryForFree() {
-      // Trigger Google OAuth
+      // Check if user has given legal consent
+      const authStore = useAuthStore()
+      if (!authStore.hasLegalConsent()) {
+        // Show consent modal first
+        this.showConsentModal = true
+      } else {
+        // User already consented, proceed with Google OAuth
+        this.triggerGoogleLogin()
+      }
+    },
+    handleConsentGiven(consentData) {
+      // Store consent in Pinia store
+      const authStore = useAuthStore()
+      authStore.setLegalConsent(consentData)
+      this.showConsentModal = false
+      // Now trigger Google OAuth
       this.triggerGoogleLogin()
+    },
+    handleConsentDeclined() {
+      this.showConsentModal = false
+      alert('You must agree to the Terms of Service and Privacy Policy to use Unmarble.')
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen

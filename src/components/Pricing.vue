@@ -1,4 +1,10 @@
 <template>
+  <LegalConsentModal
+    v-if="showConsentModal"
+    @consent-given="handleConsentGiven"
+    @consent-declined="handleConsentDeclined"
+  />
+
   <section class="pricing-section">
     <div class="container">
       <div class="pricing-header">
@@ -31,7 +37,7 @@
               <span>2 generations</span>
             </li>
           </ul>
-          <button class="btn-pricing" @click="triggerGoogleLogin">Get Started</button>
+          <button class="btn-pricing" @click="handleGetStarted">Get Started</button>
         </div>
 
         <!-- Premium Plan Card -->
@@ -78,7 +84,7 @@
               <span>Dedicated support</span>
             </li>
           </ul>
-          <button class="btn-pricing btn-pricing-featured" @click="triggerGoogleLogin">Get Started</button>
+          <button class="btn-pricing btn-pricing-featured" @click="handleGetStarted">Get Started</button>
         </div>
       </div>
     </div>
@@ -87,10 +93,40 @@
 
 <script>
 import googleAuthMixin from '@/mixins/googleAuth'
+import LegalConsentModal from '@/components/LegalConsentModal.vue'
+import useAuthStore from '@/stores/auth'
 
 export default {
   name: 'Pricing',
+  components: {
+    LegalConsentModal,
+  },
   mixins: [googleAuthMixin],
+  data() {
+    return {
+      showConsentModal: false,
+    }
+  },
+  methods: {
+    handleGetStarted() {
+      const authStore = useAuthStore()
+      if (!authStore.hasLegalConsent()) {
+        this.showConsentModal = true
+      } else {
+        this.triggerGoogleLogin()
+      }
+    },
+    handleConsentGiven(consentData) {
+      const authStore = useAuthStore()
+      authStore.setLegalConsent(consentData)
+      this.showConsentModal = false
+      this.triggerGoogleLogin()
+    },
+    handleConsentDeclined() {
+      this.showConsentModal = false
+      alert('You must agree to the Terms of Service and Privacy Policy to use Unmarble.')
+    },
+  },
 }
 </script>
 

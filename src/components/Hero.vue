@@ -1,4 +1,10 @@
 <template>
+  <LegalConsentModal
+    v-if="showConsentModal"
+    @consent-given="handleConsentGiven"
+    @consent-declined="handleConsentDeclined"
+  />
+
   <section id="hero" class="hero-section">
     <div class="container">
       <div class="hero-grid">
@@ -33,7 +39,7 @@
 
           <!-- CTA -->
           <div class="hero-cta-wrapper mt-4 mt-md-5 d-flex align-items-center gap-4">
-            <button class="btn btn-google btn-lg" @click="triggerGoogleLogin">
+            <button class="btn btn-google btn-lg" @click="handleTryForFree">
               <svg
                 width="18"
                 height="18"
@@ -116,13 +122,41 @@
 
 <script>
 import TestimonialCarousel from '@/components/TestimonialCarousel.vue'
+import LegalConsentModal from '@/components/LegalConsentModal.vue'
 import googleAuthMixin from '@/mixins/googleAuth'
+import useAuthStore from '@/stores/auth'
 
 export default {
   name: 'Hero',
   mixins: [googleAuthMixin],
   components: {
     TestimonialCarousel,
+    LegalConsentModal,
+  },
+  data() {
+    return {
+      showConsentModal: false,
+    }
+  },
+  methods: {
+    handleTryForFree() {
+      const authStore = useAuthStore()
+      if (!authStore.hasLegalConsent()) {
+        this.showConsentModal = true
+      } else {
+        this.triggerGoogleLogin()
+      }
+    },
+    handleConsentGiven(consentData) {
+      const authStore = useAuthStore()
+      authStore.setLegalConsent(consentData)
+      this.showConsentModal = false
+      this.triggerGoogleLogin()
+    },
+    handleConsentDeclined() {
+      this.showConsentModal = false
+      alert('You must agree to the Terms of Service and Privacy Policy to use Unmarble.')
+    },
   },
 }
 </script>

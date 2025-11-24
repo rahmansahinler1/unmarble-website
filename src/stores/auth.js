@@ -6,6 +6,7 @@ export default defineStore('auth', {
     token: null,
     user: null,
     isAuthenticated: false,
+    legalConsent: null,
   }),
 
   actions: {
@@ -30,6 +31,29 @@ export default defineStore('auth', {
         this.token = cookieMatch[1]
         this.isAuthenticated = true
       }
+
+      // Check for legal consent
+      const consentMatch = document.cookie.match(/legalConsent=([^;]+)/)
+      if (consentMatch) {
+        try {
+          this.legalConsent = JSON.parse(decodeURIComponent(consentMatch[1]))
+        } catch (e) {
+          console.error('Failed to parse legal consent', e)
+        }
+      }
+    },
+
+    setLegalConsent(consentData) {
+      this.legalConsent = consentData
+
+      const domain = import.meta.env.VITE_COOKIE_DOMAIN
+      const maxAge = 365 * 24 * 60 * 60 // 1 year
+      const consentString = encodeURIComponent(JSON.stringify(consentData))
+      document.cookie = `legalConsent=${consentString}; domain=${domain}; path=/; SameSite=Lax; max-age=${maxAge}`
+    },
+
+    hasLegalConsent() {
+      return this.legalConsent !== null
     },
 
     setAuthData(token, user) {
