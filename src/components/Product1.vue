@@ -1,4 +1,10 @@
 <template>
+  <LegalConsentModal
+    v-if="showConsentModal"
+    @consent-given="handleConsentGiven"
+    @consent-declined="handleConsentDeclined"
+  />
+
   <section id="product" class="product-section">
     <div class="container">
       <div class="product-grid">
@@ -11,7 +17,7 @@
             modeling. Let AI help you to design your very realistic outfit in just seconds with one
             click.
           </p>
-          <button class="btn btn-product" @click="triggerGoogleLogin">Try Unmarble</button>
+          <button class="btn btn-product" @click="handleTryForFree">Try Unmarble</button>
         </div>
 
         <!-- Right: Image -->
@@ -29,9 +35,38 @@
 
 <script>
 import googleAuthMixin from '@/mixins/googleAuth'
+import LegalConsentModal from '@/components/LegalConsentModal.vue'
+import useAuthStore from '@/stores/auth'
 
 export default {
   name: 'Product1',
+  components: {
+    LegalConsentModal,
+  },
   mixins: [googleAuthMixin],
+  data() {
+    return {
+      showConsentModal: false,
+    }
+  },
+  methods: {
+    handleTryForFree() {
+      const authStore = useAuthStore()
+      if (!authStore.hasLegalConsent()) {
+        this.showConsentModal = true
+      } else {
+        this.triggerGoogleLogin()
+      }
+    },
+    handleConsentGiven(consentData) {
+      const authStore = useAuthStore()
+      authStore.setLegalConsent(consentData)
+      this.showConsentModal = false
+      this.triggerGoogleLogin()
+    },
+    handleConsentDeclined() {
+      this.showConsentModal = false
+    },
+  },
 }
 </script>
