@@ -155,7 +155,6 @@ export default {
     },
     handleConsentDeclined() {
       this.showConsentModal = false
-      alert('You must agree to the Terms of Service and Privacy Policy to use Unmarble.')
     },
   },
 }
