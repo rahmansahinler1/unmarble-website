@@ -355,6 +355,10 @@ body {
   position: relative;
   overflow: hidden;
   animation: glow-pulse 1.8s ease-in-out infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .navbar-cta::before {
