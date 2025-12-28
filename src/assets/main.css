@@ -1606,7 +1606,7 @@ body {
   }
   
   .navbar-cta {
-    font-size: clamp(14px, 2vw, 18px);
+    font-size: clamp(12px, 1.5vw, 14px);
     padding: 0.4rem 0.75rem;
   }
 
