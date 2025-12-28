@@ -2,8 +2,8 @@
   <div v-if="isVisible" class="modal-overlay" @click.self="handleDecline">
     <div class="modal-container">
       <div class="modal-header">
-        <h2>Legal Consent Required</h2>
-        <p>By continuing, you confirm the following:</p>
+        <h2>Legal Consent</h2>
+        <p>To continue, confirm:</p>
       </div>
 
       <div class="modal-body">
@@ -30,9 +30,7 @@
 
       <div class="modal-footer">
         <button class="btn-decline" @click="handleDecline">Decline</button>
-        <button class="btn-agree" @click="handleAgree">
-          Agree & Continue
-        </button>
+        <button class="btn-agree" @click="handleAgree">Continue</button>
       </div>
     </div>
   </div>
@@ -198,13 +196,33 @@ export default {
     padding: 1.5rem;
   }
 
+  /* Reduce header font size */
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Reduce subtitle font size */
+  .modal-header p {
+    font-size: 0.85rem;
+  }
+
+  /* Reduce consent items font size */
+  .consent-item {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
   .modal-footer {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0.75rem;
   }
 
   .btn-decline,
   .btn-agree {
-    width: 100%;
+    width: auto;
+    flex: 1;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
   }
 }
 </style>
