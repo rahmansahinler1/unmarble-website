@@ -65,25 +65,25 @@ export default {
           id: 3,
           question: 'How do I use it?',
           answer:
-            'Getting started is simple: Sign up with Google, upload your photos, add clothing items you want to try, and click generate. Our AI will create realistic images showing how the outfits look on you in seconds.',
+            'Getting started is simple: Sign up with your Google Account, upload your photos, add clothing items you want to try on, and design with one click. Our AI will create realistic images showing how the outfits look on you in seconds.',
         },
         {
           id: 4,
           question: 'Can I store my pictures?',
           answer:
-            'Yes! All your uploaded photos and generated outfit images are securely stored in your personal gallery. You can access, organize, and manage your collection anytime from your account dashboard.',
+            'Yes! All your uploaded photos and generated outfit images are securely stored in your personal gallery. You can access, organize, and manage your collection anytime from your account.',
         },
         {
           id: 5,
           question: 'Can I try outfits on myself?',
           answer:
-            "Absolutely! That's the core feature of Unmarble. Upload a photo of yourself and any clothing items, and our AI will generate realistic images showing exactly how those outfits would look on you.",
+            "Absolutely! That's the core feature of Unmarble. Upload a photo of yourself and any clothing item, our AI will generate realistic images showing exactly how those outfits would look on you. There is no limit for your imagination!",
         },
         {
           id: 6,
           question: 'What kind of pictures should I upload?',
           answer:
-            'For best results, upload clear, well-lit photos with good resolution. Your personal photos should show your full body or upper body clearly. Clothing images should have plain backgrounds and show the item clearly without obstructions.',
+            'For best results, upload clear, well-lit photos with good resolution. Your personal photos should show your full body or upper body clearly. Clothing images should have good quality, they can be on models aswell. Unmarble will understand and put the clothing on you.',
         },
       ],
     }
