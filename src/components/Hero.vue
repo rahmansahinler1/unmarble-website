@@ -140,6 +140,8 @@ export default {
   },
   methods: {
     handleTryForFree() {
+      window.posthog?.capture('login_button_clicked', { button_location: 'hero' })
+
       const authStore = useAuthStore()
       if (!authStore.hasLegalConsent()) {
         this.showConsentModal = true

@@ -51,6 +51,8 @@ export default {
   },
   methods: {
     handleCreateNow() {
+      window.posthog?.capture('login_button_clicked', { button_location: 'product2' })
+
       const authStore = useAuthStore()
       if (!authStore.hasLegalConsent()) {
         this.showConsentModal = true

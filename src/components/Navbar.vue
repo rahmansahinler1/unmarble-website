@@ -98,13 +98,12 @@ export default {
       this.scrollToSection('hero')
     },
     handleTryForFree() {
-      // Check if user has given legal consent
+      window.posthog?.capture('login_button_clicked', { button_location: 'navbar' })
+
       const authStore = useAuthStore()
       if (!authStore.hasLegalConsent()) {
-        // Show consent modal first
         this.showConsentModal = true
       } else {
-        // User already consented, proceed with Google OAuth
         this.triggerGoogleLogin()
       }
     },

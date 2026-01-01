@@ -37,7 +37,7 @@
               <span>2 generations</span>
             </li>
           </ul>
-          <button class="btn-pricing" @click="handleGetStarted">Get Started</button>
+          <button class="btn-pricing" @click="handleGetStarted('trial')">Get Started</button>
         </div>
 
         <!-- Premium Plan Card -->
@@ -84,7 +84,7 @@
               <span>Dedicated support</span>
             </li>
           </ul>
-          <button class="btn-pricing btn-pricing-featured" @click="handleGetStarted">Get Started</button>
+          <button class="btn-pricing btn-pricing-featured" @click="handleGetStarted('premium')">Get Started</button>
         </div>
       </div>
     </div>
@@ -108,7 +108,9 @@ export default {
     }
   },
   methods: {
-    handleGetStarted() {
+    handleGetStarted(plan) {
+      window.posthog?.capture('login_button_clicked', { button_location: `pricing_${plan}` })
+
       const authStore = useAuthStore()
       if (!authStore.hasLegalConsent()) {
         this.showConsentModal = true

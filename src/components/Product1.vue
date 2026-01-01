@@ -51,6 +51,8 @@ export default {
   },
   methods: {
     handleTryForFree() {
+      window.posthog?.capture('login_button_clicked', { button_location: 'product1' })
+
       const authStore = useAuthStore()
       if (!authStore.hasLegalConsent()) {
         this.showConsentModal = true
